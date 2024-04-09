@@ -1,0 +1,102 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %} | Daftar</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.ico' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <!--<link-->
+    <!--rel="stylesheet"-->
+    <!--type="text/css"-->
+    <!--href="{% static 'css/debug.css' %}"-->
+    <!--/>-->
+  </head>
+
+  <body>
+    <nav
+      class="navbar p-4 is-primary is-unselectable has-shadow"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a
+          class="navbar-item is-size-4 is-italic has-text-weight-bold"
+          href="{% url 'index' %}"
+        >
+          Daftar</a
+        >
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="masterNavbar"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div
+        id="masterNavbar"
+        class="navbar-menu is-size-5 has-text-weight-semibold"
+      >
+        <div class="navbar-end">
+          <a class="navbar-item mr-1" href="{% url 'all_posts' %}">Posts</a>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer mt-3">
+      <div class="columns">
+        <div class="column is-narrow">
+          <h2 class="subtitle has-text-weight-semibold">On the internet</h2>
+          <ul>
+            <li class="mb-2">
+              <a href="https://github.com/sheikhartin">GitHub</a
+              ><span class="is-italic ml-1">(Recommended)</span>
+            </li>
+            <li class="mb-2">
+              <a href="mailto:sheikhartin@gmail.com">Email</a
+              ><span class="is-italic ml-1">(Not bad)</span>
+            </li>
+            <li class="mb-2">
+              <a href="https://telegram.me/sheikhartin">Telegram</a
+              ><span class="is-italic ml-1">(Good enough)</span>
+            </li>
+            <li class="mb-2">
+              <a href="https://stackoverflow.com/users/13414133/artin-mohammadi"
+                >Stack Overflow</a
+              ><span class="is-italic ml-1">(Ummm)</span>
+            </li>
+            <li class="mb-2">
+              <a href="https://youtube.com/@artin-mohammadi/">YouTube</a
+              ><span class="is-italic ml-1">(Currently inactive)</span>
+            </li>
+            <li class="mb-1">
+              <a href="https://linkedin.com/in/artin-mohammadi/">LinkedIn</a
+              ><span class="is-italic ml-1">(Blocked)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="column content has-text-centered">
+          <p>All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/resources/jquery-3.7.1.min.js"></script>
+    <script src="/static/js/ui-helpers.js"></script>
+  </body>
+</html>
