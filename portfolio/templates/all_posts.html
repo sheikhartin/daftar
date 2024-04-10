@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mx-auto is-fluid">
+  <div class="fixed-grid has-2-cols">
+    <div class="grid">
+      {% for post in posts %}
+      <a class="cell box" href="{% url 'single_post' post_slug=post.slug %}">
+        <span class="has-text-weight-semibold">{{ post.title }}</span>
+        <p class="my-2">{{ post.description }}</p>
+        <hr />
+        <p>{{ post.content | truncatechars:255 }}</p>
+        <div class="tags mt-3">
+          {% for tag in post.tags.all %}
+          <span class="tag">{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <nav
+    class="pagination is-rounded is-justify-content-flex-end"
+    role="navigation"
+    aria-label="pagination"
+  >
+    {% if posts.has_previous %}
+    <a class="pagination-previous" href="?page={{ posts.previous_page_number }}"
+      >Previous</a
+    >
+    {% else %}
+    <a class="pagination-previous" disabled>Previous</a>
+    {% endif %} {% if posts.has_next %}
+    <a class="pagination-next" href="?page={{ posts.next_page_number }}"
+      >Next page</a
+    >
+    {% else %}
+    <a class="pagination-next" disabled>Next page</a>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}
