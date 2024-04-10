@@ -1,4 +1,6 @@
+import markdown
 from django.db import models
+from django.utils.safestring import SafeString, mark_safe
 
 
 class Tag(models.Model):
@@ -13,3 +15,11 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField("Tag", related_name="posts")
     is_public = models.BooleanField(default=False)
+
+    def get_markdown(self) -> SafeString:
+        """Renders the content in Markdown format."""
+        return mark_safe(
+            markdown.Markdown(extensions=["fenced_code", "codehilite"]).convert(
+                self.content
+            )
+        )
