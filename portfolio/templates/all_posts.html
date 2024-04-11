@@ -3,7 +3,27 @@
 
 {% block content %}
 <div class="container mt-5 mx-auto is-fluid">
-  <div class="fixed-grid has-2-cols">
+  <form action="{% url 'all_posts' %}" method="get">
+    <div class="field mb-4 is-justify-content-center has-addons">
+      <p class="control">
+        <input
+          class="input"
+          type="text"
+          name="query"
+          placeholder="Search for a title or tag..."
+          size="45%"
+        />
+      </p>
+      <p class="control">
+        <button class="button has-background-primary-light" type="submit">
+          Go
+        </button>
+      </p>
+    </div>
+  </form>
+
+  {% if posts %}
+  <div class="fixed-grid has-0-cols has-1-cols-mobile has-2-cols-tablet">
     <div class="grid">
       {% for post in posts %}
       <a class="cell box" href="{% url 'single_post' post_slug=post.slug %}">
@@ -20,6 +40,12 @@
       {% endfor %}
     </div>
   </div>
+  {% else %}
+  <div class="container mx-auto is-fluid is-size-5 has-text-centered">
+    <h1 class="title">Status code: 204</h1>
+    <p>We couldn't find any posts matching your search.</p>
+  </div>
+  {% endif %}
 
   <nav
     class="pagination is-rounded is-justify-content-flex-end"
@@ -27,13 +53,17 @@
     aria-label="pagination"
   >
     {% if posts.has_previous %}
-    <a class="pagination-previous" href="?page={{ posts.previous_page_number }}"
+    <a
+      class="pagination-previous"
+      href="?page={{ posts.previous_page_number }}{% if query is not None %}&query={{ query }}{% endif %}"
       >Previous</a
     >
     {% else %}
     <a class="pagination-previous" disabled>Previous</a>
     {% endif %} {% if posts.has_next %}
-    <a class="pagination-next" href="?page={{ posts.next_page_number }}"
+    <a
+      class="pagination-next"
+      href="?page={{ posts.next_page_number }}{% if query is not None %}&query={{ query }}{% endif %}"
       >Next page</a
     >
     {% else %}
