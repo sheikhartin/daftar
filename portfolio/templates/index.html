@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container fixed-grid mt-5 has-text-centered has-1-cols-mobile">
+  <div class="grid">
+    <div class="cell content mx-3 is-size-5">
+      <strong>“That's Right, I'm Artin!”</strong>
+      <p>
+        I am a software developer who is interested in doing activities that are
+        useful to the public. The more we go to the underlying layers, the
+        happier I am!
+      </p>
+      <ol class="is-upper-roman">
+        <li>
+          I wrote a program to automatically trade the ETC/USDT pair as my high
+          school internship project.
+        </li>
+        <li>
+          In less than 2 months, I implemented my own programming language from
+          scratch.
+        </li>
+        <li>
+          I created a software to better monitor and manage products in a
+          warehouse. This program also participated in the Computer Olympiad.
+        </li>
+      </ol>
+    </div>
+    <div class="cell mx-5">
+      <h1 class="title">My last post</h1>
+      <h2 class="subtitle mt-2">Maybe it shows what I am doing</h2>
+      <a
+        class="cell box"
+        href="{% url 'single_post' post_slug=last_post.slug %}"
+      >
+        <span class="has-text-weight-semibold">{{ last_post.title }}</span>
+        <p class="mt-2">{{ last_post.description }}</p>
+        <hr />
+        <p>{{ last_post.content | truncatechars:150 }}</p>
+        <div class="tags mt-3">
+          {% for tag in last_post.tags.all %}
+          <span class="tag">{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
