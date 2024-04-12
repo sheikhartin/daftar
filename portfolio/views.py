@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, HttpResponse
+from typing import Union
+
+from django.shortcuts import redirect, render, get_object_or_404
+from django.http import HttpRequest, HttpResponse, HttpResponseForbidden
 from django.views import View
 from django.core.paginator import Paginator
 
@@ -51,9 +53,37 @@ class SinglePost(View):
             {
                 "post": get_object_or_404(
                     Post, slug=kwargs.get("post_slug"), is_public=True
-                )
+                ),
+                "is_writer": request.user.groups.filter(name="Writers").exists(),
             },
         )
+
+
+class EditPost(View):
+    def get(
+        self,
+        request: HttpRequest,
+        **kwargs: str,
+    ) -> Union[HttpResponse, HttpResponseForbidden]:
+        return (
+            render(
+                request,
+                "edit_post.html",
+                {
+                    "post": get_object_or_404(Post, slug=kwargs.get("post_slug")),
+                },
+            )
+            if request.user.groups.filter(name="Writers").exists()
+            else HttpResponseForbidden()
+        )
+
+    def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+        if not request.user.groups.filter(name="Writers").exists():
+            return HttpResponseForbidden()
+        post = get_object_or_404(Post, slug=kwargs.get("post_slug"))
+        post.content = request.POST.get("content").strip()
+        post.save()
+        return redirect("edit_post", post_slug=post.slug)
 
 
 class NotFoundError(View):
