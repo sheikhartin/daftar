@@ -77,7 +77,11 @@ class EditPost(View):
             else HttpResponseForbidden()
         )
 
-    def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+    def post(
+        self,
+        request: HttpRequest,
+        **kwargs: str,
+    ) -> Union[HttpResponse, HttpResponseForbidden]:
         if not request.user.groups.filter(name="Writers").exists():
             return HttpResponseForbidden()
         post = get_object_or_404(Post, slug=kwargs.get("post_slug"))
