@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5 mx-auto is-fluid">
   <form action="{% url 'all_posts' %}" method="get">
-    <div class="field mb-4 is-justify-content-center has-addons">
+    <div class="field mb-4 is-grouped is-justify-content-center">
       <p class="control">
         <input
           class="input"
@@ -30,7 +30,7 @@
         <span class="has-text-weight-semibold">{{ post.title }}</span>
         <p class="my-2">{{ post.description }}</p>
         <hr />
-        <p>{{ post.content | truncatechars:255 }}</p>
+        <p>{{ post.content | truncatechars:150 }}</p>
         <div class="tags mt-3">
           {% for tag in post.tags.all %}
           <span class="tag">{{ tag.name }}</span>
@@ -48,13 +48,13 @@
   {% endif %}
 
   <nav
-    class="pagination is-rounded is-justify-content-flex-end"
+    class="pagination is-justify-content-flex-end"
     role="navigation"
     aria-label="pagination"
   >
     {% if posts.has_previous %}
     <a
-      class="pagination-previous"
+      class="pagination-previous has-background-primary-light"
       href="?page={{ posts.previous_page_number }}{% if query is not None %}&query={{ query }}{% endif %}"
       >Previous</a
     >
@@ -62,7 +62,7 @@
     <a class="pagination-previous" disabled>Previous</a>
     {% endif %} {% if posts.has_next %}
     <a
-      class="pagination-next"
+      class="pagination-next has-background-primary-light"
       href="?page={{ posts.next_page_number }}{% if query is not None %}&query={{ query }}{% endif %}"
       >Next page</a
     >

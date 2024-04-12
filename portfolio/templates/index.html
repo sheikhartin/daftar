@@ -36,7 +36,7 @@
         <span class="has-text-weight-semibold">{{ last_post.title }}</span>
         <p class="mt-2">{{ last_post.description }}</p>
         <hr />
-        <p>{{ last_post.content | truncatechars:255 }}</p>
+        <p>{{ last_post.content | truncatechars:150 }}</p>
         <div class="tags mt-3">
           {% for tag in last_post.tags.all %}
           <span class="tag">{{ tag.name }}</span>
