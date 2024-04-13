@@ -128,7 +128,7 @@ class EditPostViewTest(TestCase):
         )
 
 
-class NotFoundErrorViewTests(TestCase):
+class NotFoundErrorViewTest(TestCase):
     def test_not_found_error_get(self) -> None:
         response = self.client.get("/nonexistent-url/")
         self.assertEqual(response.status_code, 404)
