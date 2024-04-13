@@ -53,8 +53,21 @@ a.navbar-item {
     color 0.5s;
 }
 
+a.button,
+button.button,
+a.pagination-previous,
+a.pagination-next {
+  background-color: $blue;
+  color: #fff;
+}
+
 a.cell {
   transition: all 0.5s;
+
+  @include mixins.touch {
+    background-color: $blue;
+    color: #fff;
+  }
 }
 
 a.cell:hover,
@@ -67,6 +80,11 @@ a.cell:focus {
 a.cell .tag {
   background-color: #f5f5f5;
   transition: all 0.5s;
+
+  @include mixins.touch {
+    background-color: $light-blue;
+    color: $blue;
+  }
 }
 
 a.cell:hover .tag,

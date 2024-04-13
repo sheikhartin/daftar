@@ -22468,8 +22468,22 @@ a.navbar-item {
   transition: margin-right 2s, margin-bottom 1s, background-color 0.5s, color 0.5s;
 }
 
+a.button,
+button.button,
+a.pagination-previous,
+a.pagination-next {
+  background-color: #1565c0;
+  color: #fff;
+}
+
 a.cell {
   transition: all 0.5s;
+}
+@media screen and (max-width: 1023px) {
+  a.cell {
+    background-color: #1565c0;
+    color: #fff;
+  }
 }
 
 a.cell:hover,
@@ -22482,6 +22496,12 @@ a.cell:focus {
 a.cell .tag {
   background-color: #f5f5f5;
   transition: all 0.5s;
+}
+@media screen and (max-width: 1023px) {
+  a.cell .tag {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
 }
 
 a.cell:hover .tag,
