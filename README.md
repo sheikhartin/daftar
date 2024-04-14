@@ -6,7 +6,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/sheikhartin/daftar)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sheikhartin/daftar)
 
-The word Daftar comes from Farsi (دفتر), which means notebook. This website is implemented with the Django framework and gives you the ability to post in Markdown format!
+The word Daftar comes from Farsi (دفتر), which means notebook. This website is implemented with the Django framework and allows you to post in Markdown format and also has a commenting service inside!
 
 ### How to Use
 
@@ -31,7 +31,7 @@ Run it:
 poetry run python manage.py runserver
 ```
 
-**Note**: Only the `Writers` group can update a post through the website...
+**Note**: Only superusers can update posts and comments through the website...
 
 ### License
 
