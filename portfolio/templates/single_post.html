@@ -21,7 +21,7 @@
       </span>
       <span>{{ post.comments.values | length }}</span>
     </span>
-    {% if is_writer %}
+    {% if has_permission %}
     <a class="button mt-5 is-fullwidth" href="{% url 'edit_post' post.slug %}">
       <span class="icon">
         <i class="fas fa-pen"></i>
@@ -53,12 +53,12 @@
             </div>
           </div>
           <div class="media-right">
-            <button id="set-viewed-comment-id-{{ comment.id }}" class="icon">
+            <button {% if has_permission %} id="set-viewed-comment-id-{{ comment.id }}" {% endif %} class="icon">
               <i
-                class="fas {% if comment.viewed %} fa-check-double {% else %} fa-check {% endif %}"
+                class="fas {% if comment.viewed %}fa-check-double{% else %}fa-check{% endif %}"
               ></i>
             </button>
-            {% if is_writer %}
+            {% if has_permission %}
             <button id="purge-comment-id-{{ comment.id }}" class="icon">
               <i class="fas fa-trash"></i>
             </button>

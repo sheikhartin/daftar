@@ -19,7 +19,7 @@ class Index(View):
                 "last_post": Post.objects.filter(is_public=True)
                 .order_by("-created_at")
                 .first(),
-                "is_writer": request.user.groups.filter(name="Writers").exists(),
+                "has_permission": request.user.is_superuser,
                 "posts_with_unread_comments": Post.objects.annotate(
                     unread_comments_count=Count(
                         "comments", filter=Q(comments__viewed=False)
@@ -65,7 +65,7 @@ class SinglePost(View):
                     )
                 ),
                 "comments": post.comments.all().order_by("-timestamp"),
-                "is_writer": request.user.groups.filter(name="Writers").exists(),
+                "has_permission": request.user.is_superuser,
             },
         )
 
