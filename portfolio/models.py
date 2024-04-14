@@ -23,3 +23,12 @@ class Post(models.Model):
                 self.content
             )
         )
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=55)
+    email = models.EmailField(blank=True, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    viewed = models.BooleanField(default=False)
+    content = models.TextField()
+    post = models.ForeignKey("Post", related_name="comments", on_delete=models.CASCADE)
