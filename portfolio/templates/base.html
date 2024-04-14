@@ -96,7 +96,8 @@
       </div>
     </footer>
 
-    <script src="/static/resources/jquery-3.7.1.min.js"></script>
-    <script src="/static/js/ui-helpers.js"></script>
+    <script src="{% static 'resources/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/ui-helpers.js' %}"></script>
+    {% block script %}{% endblock %}
   </body>
 </html>
