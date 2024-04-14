@@ -4,6 +4,7 @@ from typing import Union
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseForbidden
 from django.views import View
+from django.db.models import Count, Q
 from django.core.paginator import Paginator
 
 from portfolio.models import Post, Comment
@@ -18,10 +19,12 @@ class Index(View):
                 "last_post": Post.objects.filter(is_public=True)
                 .order_by("-created_at")
                 .first(),
-                "is_writer": request.user.groups.filter(name="Writers").exists(),
-                "unread_comments": Comment.objects.filter(viewed=False).order_by(
-                    "-timestamp"
-                ),
+                "has_permission": request.user.is_superuser,
+                "posts_with_unread_comments": Post.objects.annotate(
+                    unread_comments_count=Count(
+                        "comments", filter=Q(comments__viewed=False)
+                    )
+                ).filter(unread_comments_count__gt=0),
             },
         )
 
@@ -62,7 +65,7 @@ class SinglePost(View):
                     )
                 ),
                 "comments": post.comments.all().order_by("-timestamp"),
-                "is_writer": request.user.groups.filter(name="Writers").exists(),
+                "has_permission": request.user.is_superuser,
             },
         )
 
