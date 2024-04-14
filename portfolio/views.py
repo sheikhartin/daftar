@@ -1,11 +1,12 @@
+import json
 from typing import Union
 
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpRequest, HttpResponse, HttpResponseForbidden
+from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseForbidden
 from django.views import View
 from django.core.paginator import Paginator
 
-from portfolio.models import Post
+from portfolio.models import Post, Comment
 
 
 class Index(View):
@@ -16,7 +17,11 @@ class Index(View):
             {
                 "last_post": Post.objects.filter(is_public=True)
                 .order_by("-created_at")
-                .first()
+                .first(),
+                "is_writer": request.user.groups.filter(name="Writers").exists(),
+                "unread_comments": Comment.objects.filter(viewed=False).order_by(
+                    "-timestamp"
+                ),
             },
         )
 
@@ -51,11 +56,39 @@ class SinglePost(View):
             request,
             "single_post.html",
             {
-                "post": get_object_or_404(
-                    Post, slug=kwargs.get("post_slug"), is_public=True
+                "post": (
+                    post := get_object_or_404(
+                        Post, slug=kwargs.get("post_slug"), is_public=True
+                    )
                 ),
+                "comments": post.comments.all().order_by("-timestamp"),
                 "is_writer": request.user.groups.filter(name="Writers").exists(),
             },
+        )
+
+    def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+        Comment.objects.create(
+            content=request.POST.get("comment_content").strip(),
+            name=request.POST.get("comment_name").strip(),
+            email=request.POST.get("comment_email").strip(),
+            post=get_object_or_404(Post, slug=kwargs.get("post_slug"), is_public=True),
+        )
+        return redirect("single_post", post_slug=kwargs.get("post_slug"))
+
+    def patch(self, request: HttpRequest, **kwargs: str) -> JsonResponse:
+        data = json.loads(request.body)
+        Comment.objects.filter(id=(comment_id := data.get("comment_id"))).update(
+            viewed=True
+        )
+        return JsonResponse(
+            {"status": "success", "action": "mark_viewed", "comment_id": comment_id}
+        )
+
+    def delete(self, request: HttpRequest, **kwargs: str) -> JsonResponse:
+        data = json.loads(request.body)
+        Comment.objects.filter(id=(comment_id := data.get("comment_id"))).delete()
+        return JsonResponse(
+            {"status": "success", "action": "delete", "comment_id": comment_id}
         )
 
 
