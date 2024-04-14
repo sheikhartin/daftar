@@ -27,3 +27,30 @@
   </div>
 </div>
 {% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function () {
+    var isPageDirty = false;
+
+    $(window).on("beforeunload", function () {
+      if (isPageDirty) {
+        return "Are you sure you want to leave? Any unsaved changes will be lost.";
+      }
+    });
+    $("a").on("click", function (e) {
+      if (
+        isPageDirty &&
+        !confirm(
+          "Are you sure you want to leave this page? Any unsaved changes will be lost."
+        )
+      ) {
+        e.preventDefault();
+      }
+    });
+    $("input, textarea, select").change(function () {
+      isPageDirty = true;
+    });
+  });
+</script>
+{% endblock %}
