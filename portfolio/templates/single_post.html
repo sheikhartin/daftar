@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
@@ -15,10 +16,7 @@
       {% endfor %}
     </div>
     {% if is_writer %}
-    <a
-      class="button is-fullwidth"
-      href="{% url 'edit_post' post.slug %}"
-    >
+    <a class="button is-fullwidth" href="{% url 'edit_post' post.slug %}">
       <span class="icon">
         <i class="fas fa-pen"></i>
       </span>
@@ -29,6 +27,157 @@
 
   <div class="column content is-four-fifths is-size-5">
     {{ post.get_markdown | safe }}
+    <hr />
+    <div class="container">
+      <h5 class="title is-4">Comments on this post</h5>
+      <div class="notification is-primary">
+        {% if comments %} {% for comment in comments %}
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>{{ comment.name }} </strong>
+                {% if comment.email is not None %}<small
+                  >{{ comment.email }}</small
+                >{% endif %}
+                <small>{{ comment.timestamp }}</small>
+                <br />
+                {{ comment.content }}
+              </p>
+            </div>
+          </div>
+          <div class="media-right">
+            <button id="set-viewed-comment-id-{{ comment.id }}" class="icon">
+              <i
+                class="fas {% if comment.viewed %} fa-check-double {% else %} fa-check {% endif %}"
+              ></i>
+            </button>
+            {% if is_writer %}
+            <button id="purge-comment-id-{{ comment.id }}" class="icon">
+              <i class="fas fa-trash"></i>
+            </button>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %} {% else %}
+        <h2 class="subtitle my-auto has-text-white has-text-centered">
+          Be the first to comment!
+        </h2>
+        {% endif %}
+      </div>
+      <h5 class="title is-4">Leave a comment</h5>
+      <div class="box has-background-white-bis">
+        <form
+          action="{% url 'single_post' post_slug=post.slug %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <div class="field">
+            <label class="label">
+              <span class="has-text-danger has-text-weight-bold">*</span>Name
+            </label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                name="comment_name"
+                placeholder="e.g. John Doe"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input
+                class="input"
+                type="email"
+                name="comment_email"
+                placeholder="e.g. JohnDoe@mail.com"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">
+              <span class="has-text-danger has-text-weight-bold">*</span>Comment
+            </label>
+            <div class="control">
+              <textarea
+                class="textarea"
+                name="comment_content"
+                placeholder="e.g. It was really great!"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <p class="content is-italic is-size-6 has-text-weight-medium">
+            Comments can only be deleted by the author of the post...
+          </p>
+          <div class="control has-text-right">
+            <button class="button" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function () {
+    $('[id^="purge-comment-id-"]').click(function () {
+      var commentId = this.id.replace("purge-comment-id-", "");
+      if (confirm("Are you sure you want to delete this comment?")) {
+        $.ajax({
+          url: "{% url 'single_post' post_slug=post.slug %}",
+          type: "DELETE",
+          contentType: "application/json",
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+          },
+          data: JSON.stringify({
+            comment_id: parseInt(commentId),
+          }),
+          success: function (response) {
+            if (response.action === "delete") {
+              $(`#purge-comment-id-${commentId}`).closest(".media").remove();
+            }
+          },
+          error: function (xhr, status, error) {
+            console.error("Error deleting comment:", error);
+          },
+        });
+      }
+    });
+
+    $('[id^="set-viewed-comment-id-"]').click(function () {
+      var commentId = this.id.replace("set-viewed-comment-id-", "");
+      $.ajax({
+        url: "{% url 'single_post' post_slug=post.slug %}",
+        type: "PATCH",
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+        },
+        data: JSON.stringify({
+          comment_id: parseInt(commentId),
+          action: "mark_viewed",
+        }),
+        success: function (response) {
+          if (response.action === "mark_viewed") {
+            var iconElement = $(`#set-viewed-comment-id-${commentId}`).find(
+              "i"
+            );
+            iconElement.removeClass("fa-check").addClass("fa-check-double");
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("Error marking comment as viewed:", error);
+        },
+      });
+    });
+  });
+</script>
 {% endblock %}
