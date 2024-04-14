@@ -15,9 +15,7 @@
         />
       </p>
       <p class="control">
-        <button class="button" type="submit">
-          Go
-        </button>
+        <button class="button" type="submit">Go</button>
       </p>
     </div>
   </form>
@@ -30,12 +28,18 @@
         <span class="has-text-weight-semibold">{{ post.title }}</span>
         <p class="my-2">{{ post.description }}</p>
         <hr />
-        <p>{{ post.content | truncatechars:150 }}</p>
+        <p>{{ post.get_markdown | truncatechars:200 }}</p>
         <div class="tags mt-3">
           {% for tag in post.tags.all %}
           <span class="tag">{{ tag.name }}</span>
           {% endfor %}
         </div>
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fas fa-comment"></i>
+          </span>
+          <span>{{ post.comments.values | length }}</span>
+        </span>
       </a>
       {% endfor %}
     </div>

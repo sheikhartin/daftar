@@ -15,8 +15,14 @@
       <span class="tag">{{ tag.name }}</span>
       {% endfor %}
     </div>
+    <span class="icon-text">
+      <span class="icon">
+        <i class="fas fa-comment"></i>
+      </span>
+      <span>{{ post.comments.values | length }}</span>
+    </span>
     {% if is_writer %}
-    <a class="button is-fullwidth" href="{% url 'edit_post' post.slug %}">
+    <a class="button mt-5 is-fullwidth" href="{% url 'edit_post' post.slug %}">
       <span class="icon">
         <i class="fas fa-pen"></i>
       </span>
