@@ -1,5 +1,5 @@
 import json
-from typing import Union
+from typing import Union, Any, Callable
 
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseForbidden
@@ -8,6 +8,23 @@ from django.db.models import Count, Q
 from django.core.paginator import Paginator
 
 from portfolio.models import Post, Comment
+
+
+def superuser_required(
+    view_func: Callable[..., Union[HttpResponse, HttpResponseForbidden]],
+) -> Callable[..., Union[HttpResponse, HttpResponseForbidden]]:
+    def _wrapped_view(
+        request: View,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Union[HttpResponse, HttpResponseForbidden]:
+        if not request.request.user.is_superuser:
+            return HttpResponseForbidden(
+                "You must be a superuser to perform this action."
+            )
+        return view_func(request, *args, **kwargs)
+
+    return _wrapped_view
 
 
 class Index(View):
@@ -78,6 +95,7 @@ class SinglePost(View):
         )
         return redirect("single_post", post_slug=kwargs.get("post_slug"))
 
+    @superuser_required
     def patch(self, request: HttpRequest, **kwargs: str) -> JsonResponse:
         data = json.loads(request.body)
         Comment.objects.filter(id=(comment_id := data.get("comment_id"))).update(
@@ -87,6 +105,7 @@ class SinglePost(View):
             {"status": "success", "action": "mark_viewed", "comment_id": comment_id}
         )
 
+    @superuser_required
     def delete(self, request: HttpRequest, **kwargs: str) -> JsonResponse:
         data = json.loads(request.body)
         Comment.objects.filter(id=(comment_id := data.get("comment_id"))).delete()
@@ -96,30 +115,18 @@ class SinglePost(View):
 
 
 class EditPost(View):
-    def get(
-        self,
-        request: HttpRequest,
-        **kwargs: str,
-    ) -> Union[HttpResponse, HttpResponseForbidden]:
-        return (
-            render(
-                request,
-                "edit_post.html",
-                {
-                    "post": get_object_or_404(Post, slug=kwargs.get("post_slug")),
-                },
-            )
-            if request.user.groups.filter(name="Writers").exists()
-            else HttpResponseForbidden()
+    @superuser_required
+    def get(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+        return render(
+            request,
+            "edit_post.html",
+            {
+                "post": get_object_or_404(Post, slug=kwargs.get("post_slug")),
+            },
         )
 
-    def post(
-        self,
-        request: HttpRequest,
-        **kwargs: str,
-    ) -> Union[HttpResponse, HttpResponseForbidden]:
-        if not request.user.groups.filter(name="Writers").exists():
-            return HttpResponseForbidden()
+    @superuser_required
+    def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
         post = get_object_or_404(Post, slug=kwargs.get("post_slug"))
         post.content = request.POST.get("content").strip()
         post.save()

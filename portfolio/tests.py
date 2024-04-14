@@ -76,9 +76,12 @@ class SinglePostViewTest(TestCase):
 
 class EditPostViewTest(TestCase):
     def setUp(self) -> None:
-        self.user = User.objects.create_user(username="testuser", password="12345")
-        self.user.groups.add(Group.objects.create(name="Writers"))
-        self.client.login(username="testuser", password="12345")
+        self.superuser = User.objects.create_superuser(
+            username="superuser", password="superpassword"
+        )
+        self.regular_user = User.objects.create_user(
+            username="regularuser", password="regularpassword"
+        )
         self.post = Post.objects.create(
             title="Test Post",
             slug="test-post",
@@ -86,14 +89,16 @@ class EditPostViewTest(TestCase):
             is_public=True,
         )
 
-    def test_get_edit_post_as_writer(self) -> None:
+    def test_get_edit_post_as_superuser(self) -> None:
+        self.client.login(username="superuser", password="superpassword")
         response = self.client.get(
             reverse("edit_post", kwargs={"post_slug": self.post.slug})
         )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.post.title)
 
-    def test_post_edit_post_as_writer(self) -> None:
+    def test_post_edit_post_as_superuser(self) -> None:
+        self.client.login(username="superuser", password="superpassword")
         response = self.client.post(
             reverse("edit_post", kwargs={"post_slug": self.post.slug}),
             {"content": "The new content..."},
@@ -102,21 +107,15 @@ class EditPostViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(self.post.content, "The new content...")
 
-    def test_get_edit_post_as_non_writer(self) -> None:
-        non_writer_user = User.objects.create_user(
-            username="nonwriteruser", password="12345"
-        )
-        self.client.login(username="nonwriteruser", password="12345")
+    def test_get_edit_post_as_regular_user(self) -> None:
+        self.client.login(username="regularuser", password="regularpassword")
         response = self.client.get(
             reverse("edit_post", kwargs={"post_slug": self.post.slug})
         )
         self.assertEqual(response.status_code, 403)
 
-    def test_post_edit_post_as_non_writer(self) -> None:
-        non_writer_user = User.objects.create_user(
-            username="nonwriteruser", password="12345"
-        )
-        self.client.login(username="nonwriteruser", password="12345")
+    def test_post_edit_post_as_regular_user(self) -> None:
+        self.client.login(username="regularuser", password="regularpassword")
         response = self.client.post(
             reverse("edit_post", kwargs={"post_slug": self.post.slug}),
             {"content": "Unauthorized attempt to change content!"},
