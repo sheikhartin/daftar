@@ -30,5 +30,7 @@ class Comment(models.Model):
     email = models.EmailField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     viewed = models.BooleanField(default=False)
+    is_admin_comment = models.BooleanField(default=False)
+    likes = models.IntegerField(default=0)
     content = models.TextField()
     post = models.ForeignKey("Post", related_name="comments", on_delete=models.CASCADE)
