@@ -155,7 +155,7 @@
           xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
         },
         data: {
-          like_comment_id: commentId,
+          like_comment_id: parseInt(commentId),
         },
         success: function (response) {
           if (response.status === "success" && response.action === "like") {
