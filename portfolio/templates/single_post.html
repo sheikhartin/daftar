@@ -43,9 +43,13 @@
             <div class="content">
               <p>
                 <strong>{{ comment.name }} </strong>
-                {% if comment.email is not None %}<small
-                  >{{ comment.email }}</small
-                >{% endif %}
+                {% if comment.email is not None %}
+                <small>{{ comment.email }}</small>
+                {% endif %} {% if comment.is_admin_comment %}
+                <span class="tag is-black is-hoverable has-text-weight-semibold"
+                  >ADMIN</span
+                >
+                {% endif %}
                 <small>{{ comment.timestamp }}</small>
                 <br />
                 {{ comment.content }}
@@ -53,6 +57,15 @@
             </div>
           </div>
           <div class="media-right">
+            <button
+              id="encourage-comment-id-{{ comment.id }}"
+              class="icon-text mt-1"
+            >
+              <span class="icon">
+                <i class="fas fa-thumbs-up"></i>
+              </span>
+              <span>{{ comment.likes }}</span>
+            </button>
             <button {% if has_permission %} id="set-viewed-comment-id-{{ comment.id }}" {% endif %} class="icon">
               <i
                 class="fas {% if comment.viewed %}fa-check-double{% else %}fa-check{% endif %}"
@@ -133,6 +146,31 @@
 {% block script %}
 <script>
   $(document).ready(function () {
+    $('[id^="encourage-comment-id-"]').click(function () {
+      var commentId = this.id.replace("encourage-comment-id-", "");
+      $.ajax({
+        url: "{% url 'single_post' post_slug=post.slug %}",
+        type: "POST",
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+        },
+        data: {
+          like_comment_id: commentId,
+        },
+        success: function (response) {
+          if (response.status === "success" && response.action === "like") {
+            $(`#encourage-comment-id-${response.comment_id}`)
+              .find("span")
+              .last()
+              .text(response.likes);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("Error liking comment:", error);
+        },
+      });
+    });
+
     $('[id^="purge-comment-id-"]').click(function () {
       var commentId = this.id.replace("purge-comment-id-", "");
       if (confirm("Are you sure you want to delete this comment?")) {

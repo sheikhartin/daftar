@@ -3,7 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if has_permission %}
+{% if has_permission and posts_with_unread_comments %}
 <section class="section has-text-centered has-background-white-bis">
   <h1 class="title">Unread comments</h1>
   <div class="grid is-col-min-12">

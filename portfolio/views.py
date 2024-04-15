@@ -86,12 +86,31 @@ class SinglePost(View):
             },
         )
 
-    def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+    def post(
+        self,
+        request: HttpRequest,
+        **kwargs: str,
+    ) -> Union[HttpResponse, JsonResponse]:
+        if "like_comment_id" in request.POST:
+            comment = get_object_or_404(
+                Comment, id=(comment_id := request.POST.get("like_comment_id"))
+            )
+            comment.likes += 1
+            comment.save(update_fields=["likes"])
+            return JsonResponse(
+                {
+                    "status": "success",
+                    "action": "like",
+                    "comment_id": comment_id,
+                    "likes": comment.likes,
+                }
+            )
         Comment.objects.create(
             content=request.POST.get("comment_content").strip(),
             name=request.POST.get("comment_name").strip(),
             email=request.POST.get("comment_email").strip(),
             post=get_object_or_404(Post, slug=kwargs.get("post_slug"), is_public=True),
+            is_admin_comment=request.user.is_staff or request.user.is_superuser,
         )
         return redirect("single_post", post_slug=kwargs.get("post_slug"))
 
