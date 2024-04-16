@@ -7,12 +7,70 @@
     <div class="cell control mx-3">
       <form action="{% url 'edit_post' post_slug=post.slug %}" method="post">
         {% csrf_token %}
-        <textarea
-          class="textarea"
-          name="content"
-          placeholder="What is the content of the post?"
-          rows="20"
-        >{{ post.content }}</textarea>
+        <div class="field">
+          <label class="label">
+            <span class="has-text-danger has-text-weight-bold">*</span>Title
+          </label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              name="title"
+              value="{{ post.title }}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">
+            <span class="has-text-danger has-text-weight-bold">*</span
+            >Description
+          </label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              name="description"
+              value="{{ post.description }}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">
+            <span class="has-text-danger has-text-weight-bold">*</span>Slug
+          </label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              name="slug"
+              value="{{ post.slug }}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Content</label>
+          <div class="control">
+            <textarea
+              class="textarea"
+              name="content"
+              placeholder="What is the content of the post?"
+              rows="20"
+            >{{ post.content }}</textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input
+              type="checkbox"
+              name="is_public"
+              {% if post.is_public %}checked{% endif %}
+            />
+            Is public
+          </label>
+        </div>
         <p class="control mt-2">
           <button class="button is-fullwidth">
             <span class="icon">

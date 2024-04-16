@@ -28,7 +28,7 @@
         <span class="has-text-weight-semibold">{{ post.title }}</span>
         <p class="my-2">{{ post.description }}</p>
         <hr />
-        <p>{{ post.get_markdown | truncatechars:200 }}</p>
+        <p>{{ post.get_truncated_content }}</p>
         <div class="tags mt-3">
           {% for tag in post.tags.all %}
           <span class="tag">{{ tag.name }}</span>
