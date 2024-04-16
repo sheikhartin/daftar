@@ -1,4 +1,5 @@
 import json
+import string
 from typing import Union, Any, Callable
 
 from django.shortcuts import redirect, render, get_object_or_404
@@ -147,7 +148,11 @@ class EditPost(View):
     @superuser_required
     def post(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
         post = get_object_or_404(Post, slug=kwargs.get("post_slug"))
+        post.title = request.POST.get("title").strip()
+        post.description = request.POST.get("description").strip()
+        post.slug = request.POST.get("slug").strip(string.punctuation)
         post.content = request.POST.get("content").strip()
+        post.is_public = "is_public" in request.POST
         post.save()
         return redirect("edit_post", post_slug=post.slug)
 

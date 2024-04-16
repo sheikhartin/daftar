@@ -1,5 +1,6 @@
 import markdown
 from django.db import models
+from django.utils import timezone
 from django.utils.safestring import SafeString, mark_safe
 
 
@@ -11,8 +12,8 @@ class Post(models.Model):
     title = models.CharField(max_length=110)
     description = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    content = models.TextField(blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
     tags = models.ManyToManyField("Tag", related_name="posts")
     is_public = models.BooleanField(default=False)
 
