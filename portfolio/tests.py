@@ -101,11 +101,21 @@ class EditPostViewTest(TestCase):
         self.client.login(username="superuser", password="superpassword")
         response = self.client.post(
             reverse("edit_post", kwargs={"post_slug": self.post.slug}),
-            {"content": "The new content..."},
+            new_data := {
+                "title": "Updated Title",
+                "description": "Updated description...",
+                "slug": "updated-post",
+                "content": "The new content...",
+                "is_public": "on",
+            },
         )
         self.post.refresh_from_db()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(self.post.content, "The new content...")
+        self.assertEqual(self.post.title, new_data["title"])
+        self.assertEqual(self.post.description, new_data["description"])
+        self.assertEqual(self.post.slug, new_data["slug"])
+        self.assertEqual(self.post.content, new_data["content"])
+        self.assertEqual(self.post.is_public, True)
 
     def test_get_edit_post_as_regular_user(self) -> None:
         self.client.login(username="regularuser", password="regularpassword")
