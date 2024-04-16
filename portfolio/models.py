@@ -1,6 +1,7 @@
 import markdown
 from django.db import models
 from django.utils import timezone
+from django.utils.html import strip_tags
 from django.utils.safestring import SafeString, mark_safe
 
 
@@ -22,6 +23,18 @@ class Post(models.Model):
         return mark_safe(
             markdown.Markdown(extensions=["fenced_code", "codehilite"]).convert(
                 self.content
+            )
+        )
+
+    def get_truncated_content(self) -> SafeString:
+        """Truncates a content carefully."""
+        return mark_safe(
+            "{}...".format(
+                strip_tags(
+                    markdown.markdown(
+                        self.content, extensions=["fenced_code", "codehilite"]
+                    )
+                )[:200]
             )
         )
 
