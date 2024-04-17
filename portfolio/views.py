@@ -56,17 +56,16 @@ class AllPosts(View):
                 "query": (query := request.GET.get("query")),
                 "posts": Paginator(
                     (
-                        Post.objects.filter(is_public=True, title__icontains=query)
-                        | Post.objects.filter(
-                            is_public=True, tags__name__icontains=query
-                        )
+                        Post.objects.filter(title__icontains=query)
+                        | Post.objects.filter(tags__name__icontains=query)
                         if query is not None
-                        else Post.objects.filter(is_public=True)
+                        else Post.objects.all()
                     )
                     .distinct()
                     .order_by("-created_at"),
                     4,
                 ).get_page(request.GET.get("page")),
+                "has_permission": request.user.is_superuser,
             },
         )
 
@@ -78,8 +77,12 @@ class SinglePost(View):
             "single_post.html",
             {
                 "post": (
-                    post := get_object_or_404(
-                        Post, slug=kwargs.get("post_slug"), is_public=True
+                    post := (
+                        get_object_or_404(Post, slug=kwargs.get("post_slug"))
+                        if request.user.is_superuser
+                        else get_object_or_404(
+                            Post, slug=kwargs.get("post_slug"), is_public=True
+                        )
                     )
                 ),
                 "comments": post.comments.all().order_by("-timestamp"),
