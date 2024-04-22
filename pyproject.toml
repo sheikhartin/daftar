@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "daftar"
-version = "0.7.1"
+version = "0.7.2"
 description = "The website of a person named Artin!"
 authors = ["Artin Mohammadi <sheikhartin@gmail.com>"]
 license = "MIT"

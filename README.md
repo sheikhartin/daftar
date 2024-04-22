@@ -25,10 +25,22 @@ poetry run python manage.py makemigrations \
 && poetry run python manage.py migrate
 ```
 
+Test it before running:
+
+```bash
+poetry run python manage.py test
+```
+
 Run it:
 
 ```bash
-poetry run python manage.py runserver
+poetry run python manage.py runserver --insecure
+```
+
+Check project status for deployment:
+
+```bash
+poetry run python manage.py check --deploy
 ```
 
 **Note**: Only superusers can update posts and comments through the website...
