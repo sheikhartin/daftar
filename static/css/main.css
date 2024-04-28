@@ -22463,6 +22463,13 @@ body > :not(.navbar, .footer) {
   }
 }
 
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 a.navbar-item {
   border-radius: 1rem;
   transition: margin-right 2s, margin-bottom 1s, background-color 0.5s, color 0.5s;

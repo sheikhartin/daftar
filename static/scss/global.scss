@@ -44,6 +44,13 @@ body > :not(.navbar, .footer) {
   }
 }
 
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 a.navbar-item {
   border-radius: 1rem;
   transition:
