@@ -55,6 +55,7 @@
     <div class="cell mx-5">
       <h1 class="title">My last post</h1>
       <h2 class="subtitle mt-2">Maybe it shows what I am doing</h2>
+      {% if last_post %}
       <a
         class="cell box has-text-left"
         href="{% url 'single_post' post_slug=last_post.slug %}"
@@ -75,6 +76,12 @@
           <span>{{ last_post.comments.values | length }}</span>
         </span>
       </a>
+      {% else %}
+      <p>
+        Oops! Unfortunately, nothing was found; go look at my resume or social
+        networks for now...
+      </p>
+      {% endif %}
     </div>
   </div>
 </div>
