@@ -1,0 +1,2352 @@
+[
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Writers",
+        "permissions": [
+            [
+                "add_post",
+                "portfolio",
+                "post"
+            ],
+            [
+                "change_post",
+                "portfolio",
+                "post"
+            ],
+            [
+                "delete_post",
+                "portfolio",
+                "post"
+            ],
+            [
+                "view_post",
+                "portfolio",
+                "post"
+            ],
+            [
+                "add_tag",
+                "portfolio",
+                "tag"
+            ],
+            [
+                "change_tag",
+                "portfolio",
+                "tag"
+            ],
+            [
+                "delete_tag",
+                "portfolio",
+                "tag"
+            ],
+            [
+                "view_tag",
+                "portfolio",
+                "tag"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$etI5Jys8hgSGEqKE4TXm87$mLMRGEY1W0JgH1PdOxQ6w/tsd8lHkj87k+r7zjPnilk=",
+        "last_login": "2024-06-29T14:20:35.097Z",
+        "is_superuser": true,
+        "username": "sheikhartin",
+        "first_name": "Artin",
+        "last_name": "Mohammadi",
+        "email": "sheikhartin@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-04-08T16:44:07Z",
+        "groups": [
+            [
+                "Writers"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "07dj1cqh4erwcttxvalv7nie9n3mwg7j",
+    "fields": {
+        "session_data": ".eJxVjMEOwiAQRP-FsyEs2AIevfsNZJcFqRpISnsy_rtt0oPeJvPezFsEXJcS1p7mMLG4CBCn344wPlPdAT-w3puMrS7zRHJX5EG7vDVOr-vh_h0U7GVbOz8wYc4wgsJoHQ9bVC6i1qiTS5bAc07GslLGe9JuhGwNEGg8g2Hx-QLvtjfH:1rzHyk:RBoMU5bnAzhPtIM3e8pIhIqaYEiETl0Asq0oAe0rV4g",
+        "expire_date": "2024-05-07T15:22:42.466Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6rho18q5mha27gtxyvfqtsng0h8dg5qw",
+    "fields": {
+        "session_data": ".eJxVjMEOwiAQRP-FsyEs2AIevfsNZJcFqRpISnsy_rtt0oPeJvPezFsEXJcS1p7mMLG4CBCn344wPlPdAT-w3puMrS7zRHJX5EG7vDVOr-vh_h0U7GVbOz8wYc4wgsJoHQ9bVC6i1qiTS5bAc07GslLGe9JuhGwNEGg8g2Hx-QLvtjfH:1ryx3c:ylzU76XFtzSNZ6cNuEDjT9EiMocfWlxHTlncYL6CYBM",
+        "expire_date": "2024-05-06T17:02:20.933Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "j2qlm1c7svtx4ur0kr495xij6zon4g87",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlk28SdLSZ8zWLvrBQeQI8VJhbg7spQC2jcz760S7ltJe5M1zVldlFWn342Qn1I7yA-s90XzUrd1Jt0VfdCmpyXL63q4fwcFW-n1CMb5ETgiDCTszl7EgOHBYTRiPVGINwiINiM54wQYnCHvAwNaVJ8v4Jo3_w:1sNYwN:wK59a2B9Hhg2AT0LLo22HUXDIpd8JABDflbPlRRU4vI",
+        "expire_date": "2024-07-13T14:20:35.225Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "q23qfcaog0t6khc7i9us213ulc8g7382",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSFFpjxcuvcbyAwDUjWQlHZl_HfbpAvd3nPOfYuA61LC2tMcJhYXocTpdyOMz1R3wA-s9yZjq8s8kdwVedAub43T63q4fwcFe9lqkziS0d4AegdMerA5g7I0uDMrA2n0WpEDdNazzUAaYybwHsfNSSA-X-GvN-g:1ryOjL:OigZ79tLYrfMy0kj95gLI7_mNcAwwGPo5of8B5GQpo0",
+        "expire_date": "2024-05-05T04:23:07.136Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "rht1k4hbzuoopgc76c2w88qz4p94l491",
+    "fields": {
+        "session_data": ".eJxVjMEOwiAQRP-FsyEs2AIevfsNZJcFqRpISnsy_rtt0oPeJvPezFsEXJcS1p7mMLG4CBCn344wPlPdAT-w3puMrS7zRHJX5EG7vDVOr-vh_h0U7GVbOz8wYc4wgsJoHQ9bVC6i1qiTS5bAc07GslLGe9JuhGwNEGg8g2Hx-QLvtjfH:1rzWVu:Y6a3h6s7Ds3oFN-0P1-ECUB7a7ddQt8WACuUQD1W1qs",
+        "expire_date": "2024-05-08T06:53:54.992Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "t4sgtr1pvvw8tz2wa2g2d3o2nnf9u14i",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSFFpjxcuvcbyAwDUjWQlHZl_HfbpAvd3nPOfYuA61LC2tMcJhYXocTpdyOMz1R3wA-s9yZjq8s8kdwVedAub43T63q4fwcFe9lqkziS0d4AegdMerA5g7I0uDMrA2n0WpEDdNazzUAaYybwHsfNSSA-X-GvN-g:1rts6V:oCOJu5BxBG9pBmTlDr424wiJyFd7EbQV-c8aWx1Lixw",
+        "expire_date": "2024-04-22T16:44:19.234Z"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 11,
+    "fields": {
+        "name": "programming-language"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 12,
+    "fields": {
+        "name": "from-scratch"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 13,
+    "fields": {
+        "name": "python"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 14,
+    "fields": {
+        "name": "go"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 15,
+    "fields": {
+        "name": "elixir"
+    }
+},
+{
+    "model": "portfolio.tag",
+    "pk": 16,
+    "fields": {
+        "name": "lua"
+    }
+},
+{
+    "model": "portfolio.post",
+    "pk": 21,
+    "fields": {
+        "title": "Implementation of a Programming Language",
+        "description": "My experiences of designing and implementing an interpreter from scratch with Python!",
+        "slug": "implementation-of-a-programming-language",
+        "content": "I've been thinking about how cool it would be to implement a programming language from scratch for about a year! After a long time, **I decided to leave all other projects at least for a while (even a startup company)...**\r\n\r\n#### Specifying the Desired Syntax\r\n\r\nFirst of all, maybe I should talk about the name of the language! This is the timeline of the chosen names in order:\r\n\r\n- **Ammepasand** (in Farsi, it means something that everyone likes)\r\n- **Amme** (in Farsi, it means all people)\r\n- **Farr** (in Farsi, it means glory)\r\n\r\n**My initial idea was to create a language heavily inspired by Bash**; a language with understandable and simple codes (I'm still not sure if Bash is a simple language?!) and can be used in the terminal for many tasks (such as manipulating strings and files, automating processes, etc.)...\r\n\r\nAnd this was the chosen grammar for the Ammepsand language:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_commenting.ap\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_variables.ap\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_arithmetic_operators.ap\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_conditions.ap\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_loops.ap\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=ammepasand_functions.ap\"></script>\r\n\r\nIn the middle of the night, **I said to myself, maybe I should make the syntax more similar to the C family... But after about 15 minutes, I saw that we were far away from Bash!** After that, I decided to change the name of the language to Amme along with the syntax.\r\n\r\nThis was the calculator program I wrote in the fictional Amme language:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=amme_calculator.amme\"></script>\r\n\r\nIt didn't take long for me to decide that we should have some rare features in the language we were going to implement:\r\n\r\n- Polish prefix notation for mathematical expressions\r\n- Starting indexes from one\r\n- Member-based structs\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=farr_calculator.farr\"></script>\r\n\r\n#### Implementation\r\n\r\nAll parts cannot be explained in this post, I will only mention the challenges and solutions that came to my mind during that period of time.\r\n\r\n##### Chopping the Code\r\n\r\nFor many people, the first solution that comes to mind for tokenization and even parsing is to use ANTLR, Bison, and other similar tools... I am not saying that it is a bad idea, but _we are supposed to understand the process of creating a programming language from scratch_; not just the implementation of several node visitors!\r\n\r\n**Instead of reading character by character and basic labeling, I went to use regular expressions...** _I really liked to implement the project as much as possible so that others can easily manipulate it_; and this was the main reason for using regular expressions in this phase!\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=lexer_tokens.py\"></script>\r\n\r\nA little further, you will understand what `GroupedTokens` is for!? And that I know that for a data class that all fields have a specific parameter, it can be defined in the decorator itself (e.g., `@dataclass(frozen=True, kw_only=True)`)...\r\n\r\nOur scanner logic:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=lexer_base.py\"></script>\r\n\r\nIn the constructor, we create a pattern based on the groups defined by the developer(s) to break the code into smaller parts. The `tokenize` method is probably not that difficult to understand; but I must mention that **it is much better to use generators instead of returning a list at the end of the function...**\r\n\r\nHere we define our own language tokens beautifully:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=farr_lexer.py\"></script>\r\n\r\n##### Generating Syntax Trees\r\n\r\nThis part is very, very long, so I will only take small parts of it...\r\n\r\nThis is the base parser we use with a very simple logic:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=parser_base.py\"></script>\r\n\r\n_We have over 65 nodes in Farr, but I'll only include 30% of them here_ to give you an idea of how they're structured and inherited:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=parser_nodes.py\"></script>\r\n\r\nA not so interesting solution that can be used to create the nodes needed to build a syntax tree is to reduce them to one; with fields such as node type, and its children... There are definitely different ideas for different phases; for example, another simple solution that can be used to provide nodes is to create general groups for them, such as literals, loops, etc.\r\n\r\nLet's go to parse three literals (`_parse_integer`, `_parse_string` and `_parse_identifier`), a term (`_parse_call`) and a statement (`_parse_function`):\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=farr_parser.py\"></script>\r\n\r\nAs a programmer and maintainer of this language, I have to admit that Farr could have been smarter in parsing! I mean more in the part of combining terms (`_process_expression`)...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=farr_parser_process_expression.py\"></script>\r\n\r\n##### Code Execution\r\n\r\nOh, we have to go to the back-end part of our project! **This part is both interesting and scary! Very interesting and very scary!**\r\n\r\nPreparing the environment for managing variables, functions, structs and methods; and the not so good base of the interpreter:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=interpreter_base.py\"></script>\r\n\r\n_This section can be very difficult to understand without getting into the code, especially for chained handle expressions (`_process_chain_target`) and calls (`_populate_params`)..._\r\n\r\nA half of the main code of the Farr language interpreter is as follows:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=farr_interpreter.py\"></script>\r\n\r\n**I can say that my biggest problem in implementing the interpreter was my inability to understand the logic of matching arguments with parameters!** I was involved in the implementation of the interpreter for about a week...\r\n\r\nSome objects that the language provides as its native:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d48974824bf2bd04ec44bbf4260f85b9.js?file=interpreter_objects.py\"></script>\r\n\r\nOf course, it is not necessary in this section to not divide the objects into two groups of expression and statement (it wasn't even necessary in the parser phase, but it was done for simplicity)...\r\n\r\n#### Conclusion\r\n\r\nIf I want to design and implement a programming language again (seriously, not just to gain experience); with this project, **I realized that I should spend more time on the design phase so that I don't get into ideological conflicts on the way...**\r\n\r\nSee the project on [GitHub](https://github.com/sheikhartin/farr), test it and also give feedback (if you like)!",
+        "created_at": "2024-04-16T17:25:02Z",
+        "is_public": true,
+        "tags": [
+            11,
+            12,
+            13
+        ]
+    }
+},
+{
+    "model": "portfolio.post",
+    "pk": 22,
+    "fields": {
+        "title": "Bytecode Based Calculator",
+        "description": "Just to better understand bytecode virtual machines and Go...",
+        "slug": "bytecode-based-calculator",
+        "content": "**‌Blah, blah, blah!**",
+        "created_at": "2024-04-16T16:56:20Z",
+        "is_public": false,
+        "tags": [
+            12,
+            14
+        ]
+    }
+},
+{
+    "model": "portfolio.post",
+    "pk": 25,
+    "fields": {
+        "title": "Learning Elixir in Action",
+        "description": "Examples that might help us learn Elixir...",
+        "slug": "learning-elixir-in-action",
+        "content": "I don't know anything about Elixir language, but when I want to learn a programming language, I try to make the syntax more understandable for myself with examples... **I'm not even sure at this point if the title of this post should be \"Learning Elixir in Action\" or \"Learning OCaml in Action\"!?**\r\n\r\n#### Examples\r\n\r\nHere we want to implement about 6 programs with different levels of difficulty — there are definitely many ways to implement them, but we will only write some of them (both due to lack of knowledge, and maybe to prevent the post from getting too long)!\r\n\r\n##### Fizzbuzz\r\n\r\nChoose two numbers and two labels. Now, if a number is divisible by the first number you chose, assign the first label to it; if a number is divisible by the second number you chose, assign the second label to it; and if a number is divisible by both of them, merge the labels together and assign it to that number...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=fizzbuzz.exs\"></script>\r\n\r\n`defp` means that the function cannot be invoked outside the module. In the `fizzbuzz` function, we defined a loop for the given range, and then we piped the current labeled number to `IO.puts` to see the result in the console.\r\n\r\nVersion 2 of this ridiculous game:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=fizzbuzz2.exs\"></script>\r\n\r\nAs you can see in the above implementations, we can write comments in the code like most programming languages; but I will put the things that need more explanation in the main body of this post...\r\n\r\nImplementations in Bash and C++ are available in my repository:<br />\r\n[github.com/sheikhartin/fizzbuzz](https://github.com/sheikhartin/fizzbuzz)\r\n\r\n##### Linear Search Algorithm\r\n\r\nIn search algorithms in general, we should return a Boolean to say whether the target element exists in the given list or not; and it's not bad to throw its index too...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=linear_search.exs\"></script>\r\n\r\nVersion 2:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=linear_search2.exs\"></script>\r\n\r\n##### Nonsense Authentication\r\n\r\nNothing, we just need to check the entered password in our database to find out whether the user exists or not. _It is nonsense because by looking at the code you can see the username(s) and password(s)..._\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=nonsense_auth.exs\"></script>\r\n\r\nIn version 2, we use a struct and another module to improve design and readability...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=nonsense_auth2.exs\"></script>\r\n\r\n##### Calculator\r\n\r\nThe calculators that are implemented here should work based on user input to know more about [IO](https://en.wikipedia.org/wiki/Input/output)...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=calculator.exs\"></script>\r\n \r\nWith `@spec`, you can define the type of parameters in a function and its return value.\r\n\r\nVersion 2 is more sensitive to errors:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=calculator2.exs\"></script>\r\n\r\nI don't have a specific style guide yet, and I also don't know if the above solution is standard or not!?\r\n\r\n##### Bubble Sort Algorithm\r\n\r\n_[\"Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the input list element by element, comparing the current element with the one after it, swapping their values if needed.\"](https://en.wikipedia.org/wiki/Bubble_sort#)_\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=bubble_sort.exs\"></script>\r\n\r\nMaybe it is better to use `curr` instead of `acc`, and `tail` instead of `rest` as the names of our variables.\r\n\r\nFor the first time, I want to analyze the code function by function!\r\n\r\n- **bubble/1**: This function initializes the bubble sort process for a [single pass](https://stackoverflow.com/a/13114130/13414133). It calls `bubble/3` with the rest of the list, the head as the current element to be compared, and an empty list as the accumulator for sorted elements.\r\n\r\n- **bubble/3**: Reverses the accumulator list and prepends the current element to it. In fact, it puts the largest element at the end of the sorted list.\r\n\r\n- **bubble/3 when acc <= head**: It calls itself recursively with the rest of the list, the head as the new current element, and the accumulator with the current element added to it.\r\n\r\n- **bubble/3**: This function continues the bubble sort pass when the current element is greater than the next element.\r\n\r\n- **sort/2**: This function returns the list as is, indicating that the sorting is complete.\r\n\r\n- **sort/2**: Recursively calls itself, decrementing `n` by 1.\r\n\r\n- **sort/1**: Calls the `sort/2` function with the list and its length, which determines how many passes are needed to sort the list.\r\n\r\n##### Rock, Paper, Scissors\r\n\r\nYou know it better than me!\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=rock_paper_scissors.exs\"></script>\r\n\r\nIn the above implementation, I tried to break my code into smaller parts... This is very good, but I am not a fan of using variables too much!\r\n\r\nVersion 2 for easier recognition of win conditions:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/9ed032f42cad6ae7e66e4ccabc696bba.js?file=rock_paper_scissors2.exs\"></script>\r\n\r\nThe default value considered as the number of times to play the game is 5. And yeah, it doesn't look very functional!\r\n\r\nImplementation in Bash:<br />\r\n[github.com/sheikhartin/rock-paper-scissors](https://github.com/sheikhartin/rock-paper-scissors)\r\n\r\n#### Last Words\r\n\r\n**In my opinion, to learn a language (of any kind), you have to work many hours so that you don't think about the syntax anymore...** I'm still not sure if I should continue learning this language or not; but after a few years of procedural programming, _it makes me think differently about how to code, which is lovely and interesting!_ Maybe I should write a more important project with Elixir and then decide what to do...\r\n\r\nOther learning resources:\r\n\r\n- [Elixir School](https://elixirschool.com/en)\r\n- [Tutorialspoint](https://www.tutorialspoint.com/elixir/index.htm)",
+        "created_at": "2024-04-19T06:29:22Z",
+        "is_public": true,
+        "tags": [
+            11,
+            15
+        ]
+    }
+},
+{
+    "model": "portfolio.post",
+    "pk": 26,
+    "fields": {
+        "title": "A Library in Lua",
+        "description": "I don't know, maybe a window to another part of the software development world...",
+        "slug": "a-library-in-lua",
+        "content": "My third post, like the previous two, is related to \"adventure\" in different programming languages! I don't know how useful this kind of posts can be, but most likely it has its own fans (even a few) and it's interesting for me too...\r\n\r\n#### Lua Programming Language\r\n\r\nSince this post is not long in terms of content other than code, I will tell you a little about Lua!\r\n\r\nWikipedia says:\r\n\r\n> Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed primarily for embedded use in applications. Lua is cross-platform, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C API to embed it into applications.\r\n\r\nAnd:\r\n\r\n> Lua originated in 1993 as a language for extending software applications to meet the increasing demand for customization at the time. It provided the basic facilities of most procedural programming languages, but more complicated or domain-specific features were not included; rather, it included mechanisms for extending the language, allowing programmers to implement such features. As Lua was intended to be a general embeddable extension language, the designers of Lua focused on improving its speed, portability, extensibility and ease-of-use in development.\r\n\r\nExcept for the last program that you will see in the next part of this article, almost the rest of the programs are also written in **[Teal](https://github.com/teal-language/tl) (Lua, but its statically typed version)**... I really liked its syntax, the facilities it offers and its good execution speed; but _due to the inability to understand the logic of the code, and because it only relies on specified types, it gives ridiculous errors sometimes!_\r\n\r\n#### What Did I Make With It?\r\n\r\n##### Lua Itself\r\n\r\nDefinitely the first one was **Fizzbuzz**!\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=fizzbuzz.lua\"></script>\r\n\r\nTo learn how to take user input, mathematical operators, and function declarations, **writing a simple calculator program** isn't a bad place to start...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=calculator.lua\"></script>\r\n\r\nA very simple **linear search algorithm** on the languages ​​I knew (even just their names)...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=linear_search.lua\"></script>\r\n\r\n**Number guessing game** with the ability to manipulate the difficulty level:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=guess_the_number.lua\"></script>\r\n\r\nAnd something that can be very useful, especially _for those who have experience working with the functional programming paradigm_:\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/ead3da9a305fc55449acd3efbdb38d04.js?file=boost.lua\"></script>\r\n\r\n##### In Teal\r\n\r\nI have decided to put the codes here without explanation so that you can understand the syntax; but from the names of the functions, you can easily guess what they are about...\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=linear_search.tl\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=binary_search.tl\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=bubble_sort.tl\"></script>\r\n\r\n<script src=\"https://gist.github.com/sheikhartin/d5916361c3d682af3d02f14f965c95cc.js?file=fake_nlp.tl\"></script>\r\n\r\n#### Last Words\r\n\r\nI don't know yet what I want to do with Lua in the future, but maybe later I want to make a game with it for smartphones that...\r\n\r\nUseful links:\r\n\r\n- [Wikipedia](https://en.wikipedia.org/wiki/Lua_(programming_language))\r\n- [Official website](https://www.lua.org/)",
+        "created_at": "2024-06-29T14:20:47Z",
+        "is_public": true,
+        "tags": [
+            16,
+            11
+        ]
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-04-08T16:49:39.404Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.325Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "10",
+        "object_repr": "Tag object (10)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.332Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "9",
+        "object_repr": "Tag object (9)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.343Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "8",
+        "object_repr": "Tag object (8)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.355Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "7",
+        "object_repr": "Tag object (7)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.366Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "6",
+        "object_repr": "Tag object (6)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.377Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "5",
+        "object_repr": "Tag object (5)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.389Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "4",
+        "object_repr": "Tag object (4)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.400Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "3",
+        "object_repr": "Tag object (3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.411Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "2",
+        "object_repr": "Tag object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-04-08T16:51:30.422Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "1",
+        "object_repr": "Tag object (1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.066Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "20",
+        "object_repr": "Post object (20)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.076Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "19",
+        "object_repr": "Post object (19)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.088Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "18",
+        "object_repr": "Post object (18)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.099Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "17",
+        "object_repr": "Post object (17)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.110Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "16",
+        "object_repr": "Post object (16)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.121Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "15",
+        "object_repr": "Post object (15)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.132Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "14",
+        "object_repr": "Post object (14)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.144Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "13",
+        "object_repr": "Post object (13)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.155Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "12",
+        "object_repr": "Post object (12)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.167Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "11",
+        "object_repr": "Post object (11)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.178Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "10",
+        "object_repr": "Post object (10)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.189Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "9",
+        "object_repr": "Post object (9)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.201Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "8",
+        "object_repr": "Post object (8)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.212Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "7",
+        "object_repr": "Post object (7)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.223Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "6",
+        "object_repr": "Post object (6)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.234Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "5",
+        "object_repr": "Post object (5)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.247Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "4",
+        "object_repr": "Post object (4)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.258Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "3",
+        "object_repr": "Post object (3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.270Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "2",
+        "object_repr": "Post object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2024-04-08T16:51:41.281Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "1",
+        "object_repr": "Post object (1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2024-04-08T16:52:21.446Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "11",
+        "object_repr": "Tag object (11)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2024-04-08T16:52:34.339Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "12",
+        "object_repr": "Tag object (12)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2024-04-08T16:53:19.906Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Tags\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2024-04-08T16:53:36.052Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "13",
+        "object_repr": "Tag object (13)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2024-04-08T16:53:38.689Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2024-04-08T16:54:38.624Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "14",
+        "object_repr": "Tag object (14)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2024-04-08T16:56:20.258Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2024-04-08T17:01:33.775Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "23",
+        "object_repr": "Post object (23)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2024-04-08T17:02:55.480Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2024-04-09T05:38:49.541Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2024-04-10T13:18:56.861Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2024-04-10T13:19:10.054Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2024-04-10T13:20:24.378Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2024-04-10T13:21:34.295Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2024-04-10T14:56:46.837Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2024-04-10T15:07:15.986Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2024-04-10T16:54:01.014Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2024-04-10T16:54:24.443Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2024-04-10T16:54:56.659Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2024-04-10T18:35:24.335Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2024-04-10T18:36:35.453Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2024-04-10T18:38:14.853Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2024-04-11T18:00:15.033Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2024-04-12T06:15:20.752Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "24",
+        "object_repr": "Post object (24)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2024-04-12T06:15:32.511Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "23",
+        "object_repr": "Post object (23)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2024-04-12T06:20:54.260Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2024-04-12T06:21:30.290Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2024-04-12T06:21:39.242Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2024-04-12T06:21:51.983Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2024-04-12T06:22:19.394Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2024-04-12T06:22:36.010Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2024-04-12T06:23:56.169Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2024-04-12T06:33:03.411Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2024-04-12T06:33:13.293Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2024-04-12T06:34:44.425Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2024-04-12T06:35:18.190Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2024-04-12T06:53:04.254Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2024-04-12T07:09:25.631Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2024-04-12T07:21:18.529Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2024-04-12T07:21:43.437Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2024-04-12T07:23:45.006Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2024-04-12T07:25:47.204Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2024-04-12T07:26:02.136Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2024-04-12T07:26:19.888Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2024-04-12T07:26:38.308Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2024-04-12T07:31:05.833Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2024-04-12T07:31:29.012Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2024-04-12T07:40:04.627Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2024-04-12T07:40:54.750Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2024-04-12T07:46:23.745Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2024-04-12T07:46:31.584Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2024-04-12T07:48:19.596Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2024-04-12T07:52:55.491Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2024-04-12T07:53:27.744Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2024-04-12T07:56:36.410Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2024-04-12T07:56:54.720Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2024-04-12T07:57:25.872Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2024-04-12T08:03:11.481Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2024-04-12T08:03:47.962Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2024-04-12T08:04:27.952Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2024-04-12T08:32:46.510Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Is public\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2024-04-12T08:32:49.451Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2024-04-12T08:32:52.937Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Is public\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2024-04-12T14:44:15.347Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "Writers",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2024-04-12T14:44:21.566Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "Writers",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2024-04-12T14:44:57.443Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "Writers",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2024-04-12T14:45:37.306Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "1",
+        "object_repr": "sheikhartin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2024-04-12T16:37:13.380Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2024-04-14T04:52:26.938Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "1",
+        "object_repr": "Comment object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2024-04-14T04:52:31.509Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "1",
+        "object_repr": "Comment object (1)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2024-04-14T04:52:52.478Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "2",
+        "object_repr": "Comment object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2024-04-14T05:08:08.300Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "3",
+        "object_repr": "Comment object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2024-04-14T17:08:19.039Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "17",
+        "object_repr": "Comment object (17)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Viewed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2024-04-14T17:08:21.679Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "18",
+        "object_repr": "Comment object (18)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2024-04-14T17:08:25.155Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "comment"
+        ],
+        "object_id": "20",
+        "object_repr": "Comment object (20)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Viewed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2024-04-16T04:46:55.885Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "15",
+        "object_repr": "Tag object (15)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2024-04-16T04:47:06.504Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "25",
+        "object_repr": "Post object (25)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2024-04-16T12:52:31.129Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2024-04-16T12:57:12.209Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2024-04-16T13:08:59.958Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "22",
+        "object_repr": "Post object (22)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Created at\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2024-04-16T13:12:00.614Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "26",
+        "object_repr": "Post object (26)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2024-04-16T13:12:07.382Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "26",
+        "object_repr": "Post object (26)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2024-04-16T13:16:17.621Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Created at\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2024-04-16T17:25:05.638Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "21",
+        "object_repr": "Post object (21)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Created at\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2024-04-19T06:29:24.302Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "25",
+        "object_repr": "Post object (25)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Created at\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2024-06-29T14:25:11.741Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "tag"
+        ],
+        "object_id": "16",
+        "object_repr": "Tag object (16)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2024-06-29T14:27:14.456Z",
+        "user": [
+            "sheikhartin"
+        ],
+        "content_type": [
+            "portfolio",
+            "post"
+        ],
+        "object_id": "26",
+        "object_repr": "Post object (26)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}
+]
