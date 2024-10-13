@@ -65,6 +65,16 @@
           <label class="checkbox">
             <input
               type="checkbox"
+              name="is_rtl"
+              {% if post.is_rtl %}checked{% endif %}
+            />
+            Is RTL
+          </label>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input
+              type="checkbox"
               name="is_public"
               {% if post.is_public %}checked{% endif %}
             />
@@ -81,10 +91,12 @@
         </p>
       </form>
     </div>
-    <div class="cell content mx-3">{{ post.get_markdown | safe }}</div>
+    <div class="cell content mx-3" {% if post.is_rtl %} dir="rtl" {% endif %}>
+      {{ post.get_markdown | safe }}
+    </div>
   </div>
 </div>
-{% endblock %}
+{% endblock %} 
 
 {% block script %}
 <script>
