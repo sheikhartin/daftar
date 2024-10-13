@@ -91,7 +91,7 @@
         </p>
       </form>
     </div>
-    <div class="cell content mx-3" {% if post.is_rtl %} dir="rtl" {% endif %}>
+    <div class="cell content mx-3" {% if post.is_rtl %}dir="rtl"{% endif %}>
       {{ post.get_markdown | safe }}
     </div>
   </div>
