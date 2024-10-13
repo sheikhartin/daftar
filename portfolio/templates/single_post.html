@@ -5,11 +5,13 @@
 {% block content %}
 <div class="container columns mt-5 mx-auto is-fluid">
   <div class="column">
-    <h1 class="title">{{ post.title }}</h1>
+    <h1 class="title" {% if post.is_rtl %} dir="rtl" {% endif %}>
+      {{ post.title }}
+    </h1>
     <h2 class="subtitle mt-2 mb-3 is-size-6">
       <i>{{ post.created_at | date:'F d, Y' }}</i>
     </h2>
-    <p>{{ post.description }}</p>
+    <p {% if post.is_rtl %} dir="rtl" {% endif %}>{{ post.description }}</p>
     <div class="tags mt-3">
       {% for tag in post.tags.all %}
       <span class="tag">{{ tag.name }}</span>
@@ -32,7 +34,9 @@
   </div>
 
   <div class="column content is-four-fifths is-size-5">
-    {{ post.get_markdown | safe }}
+    <div {% if post.is_rtl %} dir="rtl" {% endif %}>
+      {{ post.get_markdown | safe }}
+    </div>
     <hr />
     <div class="container">
       <h5 class="title is-4">Comments on this post</h5>

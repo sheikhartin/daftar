@@ -155,6 +155,7 @@ class EditPost(View):
         post.description = request.POST.get("description").strip()
         post.slug = request.POST.get("slug").strip(string.punctuation)
         post.content = request.POST.get("content").strip()
+        post.is_rtl = "is_rtl" in request.POST
         post.is_public = "is_public" in request.POST
         post.save()
         return redirect("edit_post", post_slug=post.slug)
