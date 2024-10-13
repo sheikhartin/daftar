@@ -16,6 +16,7 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     tags = models.ManyToManyField("Tag", related_name="posts")
+    is_rtl = models.BooleanField(default=False)
     is_public = models.BooleanField(default=False)
 
     def get_markdown(self) -> SafeString:
