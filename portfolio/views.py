@@ -8,7 +8,7 @@ from django.views import View
 from django.db.models import Count, Q
 from django.core.paginator import Paginator
 
-from portfolio.models import Post, Comment
+from portfolio.models import Tag, Post, Comment
 
 
 def superuser_required(
@@ -150,6 +150,7 @@ class EditPost(View):
             "edit_post.html",
             {
                 "post": get_object_or_404(Post, slug=kwargs.get("post_slug")),
+                "all_tags": Tag.objects.all(),
             },
         )
 
@@ -162,6 +163,9 @@ class EditPost(View):
         post.content = request.POST.get("content").strip()
         post.is_rtl = "is_rtl" in request.POST
         post.is_public = "is_public" in request.POST
+        post.tags.clear()
+        for tag_id in request.POST.getlist("tags"):
+            post.tags.add(Tag.objects.get(id=tag_id))
         post.save()
         return redirect("edit_post", post_slug=post.slug)
 
