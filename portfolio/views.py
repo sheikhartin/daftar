@@ -49,6 +49,11 @@ class Index(View):
 
 class AllPosts(View):
     def get(self, request: HttpRequest) -> HttpResponse:
+        posts = (
+            Post.objects.all()
+            if request.user.is_superuser
+            else Post.objects.filter(is_public=True)
+        )
         return render(
             request,
             "all_posts.html",
@@ -56,16 +61,16 @@ class AllPosts(View):
                 "query": (query := request.GET.get("query")),
                 "posts": Paginator(
                     (
-                        Post.objects.filter(title__icontains=query)
-                        | Post.objects.filter(tags__name__icontains=query)
+                        posts.filter(
+                            Q(title__icontains=query) | Q(tags__name__icontains=query)
+                        )
                         if query is not None
-                        else Post.objects.all()
+                        else posts
                     )
                     .distinct()
                     .order_by("-created_at"),
                     4,
                 ).get_page(request.GET.get("page")),
-                "has_permission": request.user.is_superuser,
             },
         )
 

@@ -23,7 +23,7 @@
   {% if posts %}
   <div class="fixed-grid has-0-cols has-1-cols-mobile has-2-cols-tablet">
     <div class="grid">
-      {% for post in posts %} {% if not post.is_public and has_permission %}
+      {% for post in posts %} {% if not post.is_public %}
       <a class="cell box" href="{% url 'single_post' post_slug=post.slug %}">
         <span class="has-text-weight-semibold"
           >{{ post.title }}
