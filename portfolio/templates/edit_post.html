@@ -62,6 +62,18 @@
           </div>
         </div>
         <div class="field">
+          <label class="label">Tags</label>
+          <div class="control select is-multiple">
+            <select name="tags" size="{{ all_tags | length }}" multiple>
+              {% for tag in all_tags %}
+              <option value="{{ tag.id }}" {% if tag in post.tags.all %}selected{% endif %}>
+                {{ tag.name }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="field">
           <label class="checkbox">
             <input
               type="checkbox"
