@@ -22463,7 +22463,7 @@ body > :not(.navbar, .footer) {
   }
 }
 
-.cell {
+.cell:not(.content) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22515,6 +22515,13 @@ a.cell:hover .tag,
 a.cell:focus .tag {
   background-color: #e3f2fd;
   color: #1565c0;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+  border-radius: 1em;
+  max-width: 50%;
 }
 
 pre {
