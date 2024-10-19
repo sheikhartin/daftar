@@ -8,7 +8,7 @@ from django.views import View
 from django.db.models import Count, Q
 from django.core.paginator import Paginator
 
-from portfolio.models import Post, Comment
+from portfolio.models import Tag, Post, Comment
 
 
 def superuser_required(
@@ -49,6 +49,11 @@ class Index(View):
 
 class AllPosts(View):
     def get(self, request: HttpRequest) -> HttpResponse:
+        posts = (
+            Post.objects.all()
+            if request.user.is_superuser
+            else Post.objects.filter(is_public=True)
+        )
         return render(
             request,
             "all_posts.html",
@@ -56,16 +61,16 @@ class AllPosts(View):
                 "query": (query := request.GET.get("query")),
                 "posts": Paginator(
                     (
-                        Post.objects.filter(title__icontains=query)
-                        | Post.objects.filter(tags__name__icontains=query)
+                        posts.filter(
+                            Q(title__icontains=query) | Q(tags__name__icontains=query)
+                        )
                         if query is not None
-                        else Post.objects.all()
+                        else posts
                     )
                     .distinct()
                     .order_by("-created_at"),
                     4,
                 ).get_page(request.GET.get("page")),
-                "has_permission": request.user.is_superuser,
             },
         )
 
@@ -145,6 +150,7 @@ class EditPost(View):
             "edit_post.html",
             {
                 "post": get_object_or_404(Post, slug=kwargs.get("post_slug")),
+                "all_tags": Tag.objects.all(),
             },
         )
 
@@ -157,6 +163,9 @@ class EditPost(View):
         post.content = request.POST.get("content").strip()
         post.is_rtl = "is_rtl" in request.POST
         post.is_public = "is_public" in request.POST
+        post.tags.clear()
+        for tag_id in request.POST.getlist("tags"):
+            post.tags.add(Tag.objects.get(id=tag_id))
         post.save()
         return redirect("edit_post", post_slug=post.slug)
 
