@@ -118,7 +118,11 @@ class SinglePost(View):
             content=request.POST.get("comment_content").strip(),
             name=request.POST.get("comment_name").strip(),
             email=request.POST.get("comment_email").strip(),
-            post=get_object_or_404(Post, slug=kwargs.get("post_slug"), is_public=True),
+            post=(
+                get_object_or_404(Post, slug=kwargs.get("post_slug"), is_public=True)
+                if not request.user.is_staff or not request.user.is_superuser
+                else get_object_or_404(Post, slug=kwargs.get("post_slug"))
+            ),
             is_admin_comment=request.user.is_staff or request.user.is_superuser,
         )
         return redirect("single_post", post_slug=kwargs.get("post_slug"))
