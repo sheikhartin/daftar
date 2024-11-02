@@ -51,6 +51,10 @@ body > :not(.navbar, .footer) {
   height: 100%;
 }
 
+a {
+  color: dodgerblue;
+}
+
 a.navbar-item {
   border-radius: 1rem;
   transition:
