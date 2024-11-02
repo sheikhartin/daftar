@@ -22470,6 +22470,10 @@ body > :not(.navbar, .footer) {
   height: 100%;
 }
 
+a {
+  color: dodgerblue;
+}
+
 a.navbar-item {
   border-radius: 1rem;
   transition: margin-right 2s, margin-bottom 1s, background-color 0.5s, color 0.5s;
