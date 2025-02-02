@@ -22,9 +22,9 @@ class Post(models.Model):
     def get_markdown(self) -> SafeString:
         """Renders the content in Markdown format."""
         return mark_safe(
-            markdown.Markdown(extensions=["fenced_code", "codehilite"]).convert(
-                self.content
-            )
+            markdown.Markdown(
+                extensions=["tables", "fenced_code", "codehilite"]
+            ).convert(self.content)
         )
 
     def get_truncated_content(self) -> SafeString:
@@ -33,7 +33,7 @@ class Post(models.Model):
             "{}...".format(
                 strip_tags(
                     markdown.markdown(
-                        self.content, extensions=["fenced_code", "codehilite"]
+                        self.content, extensions=["tables", "fenced_code", "codehilite"]
                     )
                 )[:200]
             )
