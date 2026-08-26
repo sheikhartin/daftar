@@ -136,8 +136,12 @@ DB_ENGINE=sqlite poetry run python manage.py test
 Run it in development:
 
 ```bash
+poetry run python manage.py createsuperuser   # only needed once (a superuser)
 poetry run python manage.py runserver --insecure
 ```
+
+The superuser credentials are what you log in with at `/admin/` and what
+unlocks the post/comment editing features.
 
 ### Troubleshooting: `Unable to find a suitable destination for "daftar.pth"`
 
