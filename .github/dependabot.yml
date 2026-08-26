@@ -1,0 +1,24 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      day: saturday
+    open-pull-requests-limit: 8
+    groups:
+      python-security-releases:
+        patterns:
+          - "django"
+          - "asgiref"
+          - "sqlparse"
+          - "nh3"
+          - "markdown"
+          - "pygments"
+      development-tools:
+        dependency-type: development
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
