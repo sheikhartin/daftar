@@ -49,6 +49,41 @@ Run it in development:
 poetry run python manage.py runserver --insecure
 ```
 
+### Troubleshooting: `Unable to find a suitable destination for "daftar.pth"`
+
+This happens when Poetry is configured to install into your global/system
+Python (`virtualenvs.create = false`) and that environment's `site-packages`
+is not writable (for example, a system-wide Python installed with `sudo`
+under `/usr/local`, as is common with `make altinstall`). Poetry wants to use
+its own virtual environment, which also keeps dependencies isolated from
+your system packages.
+
+Diagnose it:
+
+```bash
+poetry config virtualenvs.create      # should print true
+poetry config --list | grep virtualenvs
+poetry env info                       # "Path" should point into ~/.cache/pypoetry/...
+```
+
+Fix it by letting Poetry manage the virtualenv again:
+
+```bash
+poetry config virtualenvs.create true
+poetry env remove --all               # clear the broken environment first
+poetry install
+poetry run python manage.py check
+```
+
+If you deliberately keep `virtualenvs.create = false`, create and activate a
+project virtualenv first so Poetry has a writable destination:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+poetry install
+```
+
 Check the deployment readiness:
 
 ```bash
