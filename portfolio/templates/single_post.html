@@ -21,7 +21,7 @@
       <span class="icon">
         <i class="fas fa-comment"></i>
       </span>
-      <span>{{ post.comments.values | length }}</span>
+      <span>{{ comment_count }}</span>
     </span>
     {% if has_permission %}
     <a class="button mt-5 is-fullwidth" href="{% url 'edit_post' post.slug %}">
@@ -54,7 +54,7 @@
                   >ADMIN</span
                 >
                 {% endif %}
-                <small>{{ comment.timestamp }}</small>
+                <small>{{ comment.timestamp|date:'M j, Y · H:i' }}</small>
                 <br />
                 {{ comment.content }}
               </p>
@@ -62,21 +62,33 @@
           </div>
           <div class="media-right">
             <button
+              type="button"
               id="encourage-comment-id-{{ comment.id }}"
               class="icon-text mt-1"
+              aria-label="Like this comment"
             >
               <span class="icon">
                 <i class="fas fa-thumbs-up"></i>
               </span>
               <span>{{ comment.likes }}</span>
             </button>
-            <button {% if has_permission %} id="set-viewed-comment-id-{{ comment.id }}" {% endif %} class="icon">
+            <button
+              type="button"
+              {% if has_permission %} id="set-viewed-comment-id-{{ comment.id }}" {% endif %}
+              class="icon"
+              aria-label="Mark comment as viewed"
+            >
               <i
                 class="fas {% if comment.viewed %}fa-check-double{% else %}fa-check{% endif %}"
               ></i>
             </button>
             {% if has_permission %}
-            <button id="purge-comment-id-{{ comment.id }}" class="icon">
+            <button
+              type="button"
+              id="purge-comment-id-{{ comment.id }}"
+              class="icon"
+              aria-label="Delete this comment"
+            >
               <i class="fas fa-trash"></i>
             </button>
             {% endif %}
@@ -90,49 +102,83 @@
       </div>
       <h5 class="title is-4">Leave a comment</h5>
       <div class="box has-background-white-bis">
+        {% if error_message %}
+        <div class="notification is-danger">{{ error_message }}</div>
+        {% endif %}
         <form
           action="{% url 'single_post' post_slug=post.slug %}"
           method="post"
+          novalidate
         >
           {% csrf_token %}
           <div class="field">
-            <label class="label">
+            <label class="label" for="comment-name">
               <span class="has-text-danger has-text-weight-bold">*</span>Name
             </label>
             <div class="control">
               <input
+                id="comment-name"
                 class="input"
                 type="text"
-                name="comment_name"
+                name="name"
+                value="{{ comment_form.name.value|default:'' }}"
                 placeholder="e.g. John Doe"
+                maxlength="55"
+                autocomplete="name"
                 required
               />
             </div>
+            {% for error in comment_form.name.errors %}
+            <p class="help is-danger">{{ error }}</p>
+            {% endfor %}
           </div>
           <div class="field">
-            <label class="label">Email</label>
+            <label class="label" for="comment-email">Email</label>
             <div class="control">
               <input
+                id="comment-email"
                 class="input"
                 type="email"
-                name="comment_email"
+                name="email"
+                value="{{ comment_form.email.value|default:'' }}"
                 placeholder="e.g. JohnDoe@mail.com"
+                maxlength="254"
+                autocomplete="email"
               />
             </div>
+            {% for error in comment_form.email.errors %}
+            <p class="help is-danger">{{ error }}</p>
+            {% endfor %}
           </div>
           <div class="field">
-            <label class="label">
+            <label class="label" for="comment-content">
               <span class="has-text-danger has-text-weight-bold">*</span>Comment
             </label>
             <div class="control">
               <textarea
+                id="comment-content"
                 class="textarea"
-                name="comment_content"
+                name="content"
                 placeholder="e.g. It was really great!"
                 rows="5"
+                maxlength="2000"
                 required
-              ></textarea>
+              >{{ comment_form.content.value|default:'' }}</textarea>
             </div>
+            {% for error in comment_form.content.errors %}
+            <p class="help is-danger">{{ error }}</p>
+            {% endfor %}
+          </div>
+          {# Honeypot: hidden from humans; bots that fill it are silently ignored. #}
+          <div class="is-hidden" aria-hidden="true">
+            <label for="comment-website">Website</label>
+            <input
+              id="comment-website"
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
           </div>
           <p class="content is-italic is-size-6 has-text-weight-medium">
             Comments can only be deleted by the author of the post...
@@ -148,7 +194,7 @@
 {% endblock %}
 
 {% block script %}
-<script>
+<script nonce="{{ request.csp_nonce }}">
   $(document).ready(function () {
     $('[id^="encourage-comment-id-"]').click(function () {
       var commentId = this.id.replace("encourage-comment-id-", "");

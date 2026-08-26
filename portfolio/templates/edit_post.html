@@ -7,88 +7,125 @@
     <div class="cell control mx-3">
       <form action="{% url 'edit_post' post_slug=post.slug %}" method="post">
         {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div class="notification is-danger">
+          {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+        </div>
+        {% endif %}
         <div class="field">
-          <label class="label">
+          <label class="label" for="post-title">
             <span class="has-text-danger has-text-weight-bold">*</span>Title
           </label>
           <div class="control">
             <input
-              class="input"
+              id="post-title"
+              class="input {% if form.title.errors %}is-danger{% endif %}"
               type="text"
               name="title"
-              value="{{ post.title }}"
+              value="{{ form.title.value|default:post.title }}"
+              maxlength="110"
               required
             />
           </div>
+          {% for error in form.title.errors %}
+          <p class="help is-danger">{{ error }}</p>
+          {% endfor %}
         </div>
         <div class="field">
-          <label class="label">
+          <label class="label" for="post-description">
             <span class="has-text-danger has-text-weight-bold">*</span
             >Description
           </label>
           <div class="control">
             <input
-              class="input"
+              id="post-description"
+              class="input {% if form.description.errors %}is-danger{% endif %}"
               type="text"
               name="description"
-              value="{{ post.description }}"
+              value="{{ form.description.value|default:post.description }}"
+              maxlength="255"
               required
             />
           </div>
+          {% for error in form.description.errors %}
+          <p class="help is-danger">{{ error }}</p>
+          {% endfor %}
         </div>
         <div class="field">
-          <label class="label">
+          <label class="label" for="post-slug">
             <span class="has-text-danger has-text-weight-bold">*</span>Slug
           </label>
           <div class="control">
             <input
-              class="input"
+              id="post-slug"
+              class="input {% if form.slug.errors %}is-danger{% endif %}"
               type="text"
               name="slug"
-              value="{{ post.slug }}"
+              value="{{ form.slug.value|default:post.slug }}"
+              maxlength="255"
               required
             />
           </div>
+          {% for error in form.slug.errors %}
+          <p class="help is-danger">{{ error }}</p>
+          {% endfor %}
         </div>
         <div class="field">
-          <label class="label">Content</label>
+          <label class="label" for="post-content">Content</label>
           <div class="control">
             <textarea
+              id="post-content"
               class="textarea"
               name="content"
               placeholder="What is the content of the post?"
               rows="20"
-            >{{ post.content }}</textarea>
+            >{{ form.content.value|default:post.content }}</textarea>
           </div>
+          {% for error in form.content.errors %}
+          <p class="help is-danger">{{ error }}</p>
+          {% endfor %}
         </div>
         <div class="field">
-          <label class="label">Tags</label>
+          <label class="label" for="post-tags">Tags</label>
           <div class="control select is-multiple">
-            <select name="tags" size="{{ all_tags | length }}" multiple>
+            <select
+              id="post-tags"
+              name="tags"
+              size="{{ all_tags|length|default:1 }}"
+              multiple
+            >
               {% for tag in all_tags %}
-              <option value="{{ tag.id }}" {% if tag in post.tags.all %}selected{% endif %}>
+              <option
+                value="{{ tag.id }}"
+                {% if tag.pk|stringformat:'s' in selected_tag_ids %}selected{% endif %}
+              >
                 {{ tag.name }}
               </option>
               {% endfor %}
             </select>
           </div>
+          {% for error in form.tags.errors %}
+          <p class="help is-danger">{{ error }}</p>
+          {% endfor %}
         </div>
         <div class="field">
-          <label class="checkbox">
+          <label class="checkbox" for="post-is-rtl">
             <input
+              id="post-is-rtl"
               type="checkbox"
               name="is_rtl"
-              {% if post.is_rtl %}checked{% endif %}
+              {% if form.is_rtl.value %}checked{% endif %}
             />
             Is RTL
           </label>
         </div>
         <div class="field">
-          <label class="checkbox">
+          <label class="checkbox" for="post-is-public">
             <input
+              id="post-is-public"
               type="checkbox"
               name="is_public"
-              {% if post.is_public %}checked{% endif %}
+              {% if form.is_public.value %}checked{% endif %}
             />
             Is public
           </label>
@@ -108,10 +145,10 @@
     </div>
   </div>
 </div>
-{% endblock %} 
+{% endblock %}
 
 {% block script %}
-<script>
+<script nonce="{{ request.csp_nonce }}">
   $(document).ready(function () {
     var isPageDirty = false;
 
