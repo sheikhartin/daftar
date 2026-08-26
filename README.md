@@ -70,6 +70,31 @@ PGPASSWORD='a-strong-password' psql -h 127.0.0.1 -U daftar -d portfolio_db -c 's
 poetry run python manage.py migrate
 ```
 
+**If `migrate` fails with `permission denied for schema public`:**
+
+PostgreSQL 15+ no longer grants `CREATE` on the `public` schema to everyone.
+Only the database owner (via the built-in `pg_database_owner` role) or a role
+with an explicit grant can create tables. If the database was created without
+`OWNER daftar`, fix it once as the `postgres` superuser:
+
+```bash
+# Option A (recommended for a dedicated app database): make daftar the owner
+sudo -u postgres psql -c "ALTER DATABASE portfolio_db OWNER TO daftar;"
+
+# Option B (keep the current owner and grant Daftar access explicitly):
+#   note: must run while connected to the portfolio_db, not the postgres db
+sudo -u postgres psql -d portfolio_db -c \
+  "GRANT USAGE, CREATE ON SCHEMA public TO daftar;"
+```
+
+Verify that `daftar` can now create objects, then migrate again:
+
+```bash
+psql -h 127.0.0.1 -U daftar -d portfolio_db \
+  -c 'CREATE TABLE _perm_check(id int); DROP TABLE _perm_check;'
+poetry run python manage.py migrate
+```
+
 Notes:
 
 - On Arch, PostgreSQL does not start automatically; `sudo systemctl start postgresql`
