@@ -72,6 +72,13 @@ poetry run python manage.py migrate
 
 **If `migrate` fails with `permission denied for schema public`:**
 
+First, see exactly which role/database Django is using (this command also
+probes the schema permissions and prints the fix for your exact values):
+
+```bash
+poetry run python manage.py dbcheck
+```
+
 PostgreSQL 15+ no longer grants `CREATE` on the `public` schema to everyone;
 only the schema/database owner can create tables. Run this complete, idempotent
 setup once as the `postgres` superuser (note: privilege commands must run
