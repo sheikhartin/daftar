@@ -37,6 +37,50 @@ Apply migrations (they are committed, no need to run `makemigrations`):
 poetry run python manage.py migrate
 ```
 
+### PostgreSQL setup (Arch Linux)
+
+First, create a dedicated role and database for the project (run this once,
+as the `postgres` superuser; `psql -l` should not yet contain `portfolio_db`):
+
+```bash
+sudo -u postgres psql
+```
+
+```sql
+CREATE ROLE daftar WITH LOGIN PASSWORD 'a-strong-password';
+CREATE DATABASE portfolio_db OWNER daftar;
+\q
+```
+
+Then point `daftar/.env` at them (and never commit the real `.env`):
+
+```dotenv
+DB_ENGINE=postgresql
+DB_NAME=portfolio_db
+DB_USER=daftar
+DB_PASSWORD=a-strong-password
+DB_HOST=127.0.0.1
+DB_PORT=5432
+```
+
+Verify the connection and apply the migrations:
+
+```bash
+PGPASSWORD='a-strong-password' psql -h 127.0.0.1 -U daftar -d portfolio_db -c 'select 1;'
+poetry run python manage.py migrate
+```
+
+Notes:
+
+- On Arch, PostgreSQL does not start automatically; `sudo systemctl start postgresql`
+  (and `enable` it if you want it on boot). Check with `pg_isready`.
+- If you prefer the existing `root` role, it must also work for `localhost`/`127.0.0.1`
+  connections: `ALTER ROLE root WITH LOGIN PASSWORD '...';` then
+  `CREATE DATABASE portfolio_db OWNER root;` and use those credentials in `.env`.
+- `localhost` can resolve to `::1` first (as in the error you saw); `127.0.0.1`
+  is unambiguous. The database must exist — Postgres reports
+  `FATAL: database "..." does not exist` before Django can create anything.
+
 Run the test suite (SQLite keeps it fast):
 
 ```bash
