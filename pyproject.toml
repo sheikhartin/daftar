@@ -17,12 +17,12 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-django = ">=5.2.17,<5.3"
+django = ">=5.2.19,<5.3"
 psycopg2-binary = "^2.9.12"
 django-environ = "^0.14.0"
 markdown = "^3.10.3"
 pygments = "^2.21.0"
-nh3 = "^0.3.7"
+nh3 = "^0.3.8"
 mysqlclient = "^2.2.8"
 
 [tool.poetry.group.dev.dependencies]
